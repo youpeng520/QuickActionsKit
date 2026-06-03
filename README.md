@@ -247,9 +247,3 @@ QuickActionsKit.setup(actions: QuickActionItem.appItems) { item in
 - [ ] `SceneDelegate.windowScene(_:performActionFor:)` — `QuickActionsKit.handle`
 - [ ] `route(_:navigationController:)` — 按 `item.type` 跳转
 - [ ] （可选）`sceneWillResignActive` — `QuickActionsKit.refresh`
-
----
-
-## License
-
-MIT
