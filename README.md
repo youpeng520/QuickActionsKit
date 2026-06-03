@@ -2,6 +2,14 @@
 
 主屏幕快捷操作（Home Screen Quick Actions）的轻量封装，提供 `setup` / `bind` / `handle` / `refresh` 等 API，基于系统原生 `UIApplicationShortcutItem`。
 
+## 预览
+
+将截图放到 [`Docs/images/`](Docs/images/) 目录（文件名与下表一致），推送到 GitHub 后会在本页自动显示。
+
+| 主屏幕快捷菜单 | Demo 首页 | 快捷打开详情 |
+| :---: | :---: | :---: |
+| ![主屏幕快捷菜单](Docs/images/screenshot-menu.png) | ![Demo 首页](Docs/images/screenshot-home.png) | ![详情页](Docs/images/screenshot-detail.png) |
+
 ## 要求
 
 - iOS 13.0+
