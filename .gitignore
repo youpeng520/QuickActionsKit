@@ -1,6 +1,11 @@
 .DS_Store
 .build/
 .swiftpm/
-*.xcodeproj
 xcuserdata/
 DerivedData/
+
+Example/Pods/
+Example/*.xcworkspace
+Example/.spm.pods/
+Example/Podfile.lock
+Example/Manifest.lock

@@ -25,15 +25,48 @@ targets: [
 
 ### CocoaPods（cocoapods-spm）
 
+本库通过 Swift Package 分发，CocoaPods 需借助 **[cocoapods-spm](https://github.com/trinhngocthuyen/cocoapods-spm)** 插件才能使用 `spm_pkg`。
+
+**1. 安装插件（只需一次）**
+
+```bash
+gem install cocoapods-spm
+```
+
+安装后可用下面命令确认：
+
+```bash
+pod plugins installed
+# 列表中应包含 cocoapods-spm
+```
+
+**2. 在 Podfile 中声明插件并添加依赖**
+
 ```ruby
-plugin 'cocoapods-spm'
+source 'https://cdn.cocoapods.org/'
+platform :ios, '13.0'
+
+plugin 'cocoapods-spm'   # 必须写在 target 之前
 
 target 'YourApp' do
-  spm_pkg 'QuickActionsKit', :git => 'https://github.com/youpeng520/QuickActionsKit.git', :tag => '1.0.0'
+  use_frameworks!
+
+  spm_pkg 'QuickActionsKit',
+    :git => 'https://github.com/youpeng520/QuickActionsKit.git',
+    :tag => '1.0.0'
 end
 ```
 
-本地开发：
+**3. 安装并打开 workspace**
+
+```bash
+pod install
+open YourApp.xcworkspace
+```
+
+> 请使用 `.xcworkspace` 编译，不要直接打开 `.xcodeproj`。
+
+**本地路径开发（可选）**
 
 ```ruby
 spm_pkg 'QuickActionsKit', :path => './QuickActionsKit'
@@ -234,6 +267,21 @@ QuickActionsKit.setup(actions: QuickActionItem.appItems) { item in
 | `handle(_:)` | 解析 `UIApplicationShortcutItem` 并触发回调，返回是否处理成功 |
 | `refresh()` | 按 `availability` 重新写入系统菜单 |
 | `pushIfNeeded(_:on:excluding:)` | 通用导航辅助 |
+
+---
+
+## 运行示例 App
+
+仓库自带最小 Demo（仅演示快捷操作，无其它依赖）：
+
+```bash
+git clone https://github.com/youpeng520/QuickActionsKit.git
+cd QuickActionsKit/Example
+pod install
+open Example/Demo.xcworkspace
+```
+
+详见 [Example/README.md](Example/README.md)。
 
 ---
 

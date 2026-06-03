@@ -1,0 +1,18 @@
+source 'https://cdn.cocoapods.org/'
+platform :ios, '13.0'
+
+plugin 'cocoapods-spm'
+
+target 'demo2' do
+  use_frameworks!
+  pod 'SnapKit', '~> 5.7.0'
+  spm_pkg 'QuickActionsKit', :git => 'https://github.com/youpeng520/QuickActionsKit.git', :tag => '1.0.0'
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+    end
+  end
+end
